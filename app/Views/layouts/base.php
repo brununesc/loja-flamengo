@@ -1,42 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'Loja Flamengo' ?></title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><?= $title ?></title>
+
+  <!-- CSS principal da aplicação -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 
-<body class="d-flex flex-column">
+<body>
 
-    <header class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container">
-            <a href="/" class="navbar-brand fw-bold">
-                Loja Flamengo
-            </a>
+  <nav class="navbar navbar-expand-lg bg-info">
+    <div class="container-fluid">
 
-            <nav>
-                <a href="/" class="nav-link d-inline text-light">Início</a>
-                <a href="/produtos" class="nav-link d-inline text-light">Produtos</a>
-                <a href="/usuarios" class="nav-link d-inline text-light">Usuários</a>
-                <a href="/sobre" class="nav-link d-inline text-light">Sobre</a>
-            </nav>
-        </div>
-    </header>
+      <a class="navbar-brand" href="/home">LOJA NIPEN</a>
 
-    <main class="flex-fill container my-4">
-        <?= $content ?>
-    </main>
+      <!-- Botão do menu responsivo -->
+      <button 
+        class="navbar-toggler" 
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <footer class="footer-site mt-auto">
-        <p class="mb-0">Loja Oficial do Flamengo</p>
-        <p class="mb-0">Desenvolvido por Bruna Nunes de Carvalho</p>
-    </footer>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/script.js"></script>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="/home">Principal</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="/usuarios/inserir">Cadastro de Usuário</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="/usuarios">Listar Usuários</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="/produtos/inserir">Cadastro de Produtos</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="/produtos">Listar Produtos</a>
+          </li>
+        </ul>
+
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Pesquisar" />
+        </form>
+
+        <a href="/login" class="btn btn-danger">Sair</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-5">
+    <div class="dashboard-container">
+      <!-- Área onde cada página é carregada -->
+      <?= $content ?>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <footer class="footer-site mt-auto">
+    Projeto desenvolvido por: Bruna Nunes de Carvalho
+  </footer>
 
 </body>
+
 </html>

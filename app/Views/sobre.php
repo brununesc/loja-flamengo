@@ -1,17 +1,8 @@
-<h1>Loja Flamengo - Produtos Oficiais</h1>
-<h2>Desenvolvido por Bruna Nunes de Carvalho</h2>
-<h3>Projeto da disciplina de Programação para Internet - Fatec Jahu</h3>
-
-<p class="mt-4">
-    Esta plataforma foi criada como um ambiente para demonstração acadêmica,
-    simulando uma loja virtual dedicada ao Clube de Regatas do Flamengo.
-</p>
-
+<h1>Loja Flamengo - Projeto da Aula de Programação para Internet</h1>
+<h2>Fatec Jahu</h2>
 <p>
-    Aqui, usuários podem visualizar, cadastrar e gerenciar produtos,
-    seguindo a temática oficial do Mengão.
+    Este projeto foi desenvolvido com o objetivo de aplicar conceitos de programação para Internet,
+    utilizando PHP, HTML e boas práticas de desenvolvimento. A página representa uma loja fictícia
+    de produtos oficiais do Clube de Regatas do Flamengo.
 </p>
-
-<p class="fw-bold text-danger">
-    “Uma vez Flamengo, sempre Flamengo!”
-</p>
+<p>Desenvolvido por <strong>Bruna Nunes de Carvalho</strong>.</p>

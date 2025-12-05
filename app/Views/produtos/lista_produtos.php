@@ -1,103 +1,56 @@
 <main class="container my-5">
-  <h2 class="mb-4 text-danger">Lista de Produtos - Flamengo</h2>
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Lista de Produtos</h2>
+    <a href="/produtos/inserir" class="btn btn-success">Criar Novo</a>
+  </div>
+
+  <!-- Caso não existam produtos cadastrados -->
+  <?php if (empty($produtos)): ?>
+      <div class="alert alert-warning text-center">
+          Nenhum produto cadastrado até o momento.
+      </div>
+  <?php else: ?>
 
   <ul class="list-group">
 
-    <li class="list-group-item d-flex flex-wrap justify-content-between align-items-center">
+    <?php foreach ($produtos as $p): ?>
+    <li class="list-group-item d-flex flex-wrap justify-content-between align-items-center mb-3 shadow-sm">
+
       <div class="col-12 col-md-9">
         <strong class="me-2">Nome:</strong>
-        <span>Camiseta Oficial Flamengo 2025</span><br>
+        <span><?= htmlspecialchars($p['nome']) ?></span><br>
 
-        <strong class="me-2">Descrição do Produto:</strong>
-        <span>Camiseta oficial do Mengão, modelo 2025, tecido leve e confortável.</span><br>
+        <strong class="me-2">Descrição:</strong>
+        <span><?= htmlspecialchars($p['descricao']) ?></span><br>
 
-        <strong class="me-2">Quantidade em Estoque:</strong>
-        <span>32</span><br>
+        <strong class="me-2">Quantidade:</strong>
+        <span><?= $p['quantidade'] ?></span><br>
 
         <strong class="me-2">Valor Unitário:</strong>
-        <span>R$ 249,90</span><br>
+        <span>R$ <?= number_format($p['valor_un'], 2, ',', '.') ?></span><br>
 
         <strong class="me-2">Categoria:</strong>
-        <span>Vestuário</span>
+        <span><?= htmlspecialchars($p['categoria']) ?></span>
       </div>
 
       <div class="col-12 col-md-3 text-md-end mt-3 mt-md-0">
-        <button class="btn btn-warning btn-sm me-2">Editar</button>
-        <button class="btn btn-danger btn-sm">Excluir</button>
+        <a href="/produtos/editar?id=<?= $p['id_produto'] ?>" class="btn btn-warning btn-sm me-2">
+          Editar
+        </a>
+
+        <a href="/produtos/excluir?id=<?= $p['id_produto'] ?>"
+           class="btn btn-danger btn-sm"
+           onclick="return confirm('Tem certeza que deseja excluir o produto <?= $p['nome'] ?>?');">
+           Excluir
+        </a>
       </div>
+
     </li>
-
-    <li class="list-group-item d-flex flex-wrap justify-content-between align-items-center">
-      <div class="col-12 col-md-9">
-        <strong class="me-2">Nome:</strong>
-        <span>Boné Flamengo Preto & Vermelho</span><br>
-
-        <strong class="me-2">Descrição do Produto:</strong>
-        <span>Boné estilizado com as cores do Mengão, ajuste por fecho.</span><br>
-
-        <strong class="me-2">Quantidade em Estoque:</strong>
-        <span>12</span><br>
-
-        <strong class="me-2">Valor Unitário:</strong>
-        <span>R$ 89,90</span><br>
-
-        <strong class="me-2">Categoria:</strong>
-        <span>Acessórios</span>
-      </div>
-
-      <div class="col-12 col-md-3 text-md-end mt-3 mt-md-0">
-        <button class="btn btn-warning btn-sm me-2">Editar</button>
-        <button class="btn btn-danger btn-sm">Excluir</button>
-      </div>
-    </li>
-
-    <li class="list-group-item d-flex flex-wrap justify-content-between align-items-center">
-      <div class="col-12 col-md-9">
-        <strong class="me-2">Nome:</strong>
-        <span>Chuteira Rubro-Negra Edição Especial</span><br>
-
-        <strong class="me-2">Descrição do Produto:</strong>
-        <span>Modelo exclusivo em homenagem ao Flamengo, ideal para colecionadores.</span><br>
-
-        <strong class="me-2">Quantidade em Estoque:</strong>
-        <span>6</span><br>
-
-        <strong class="me-2">Valor Unitário:</strong>
-        <span>R$ 399,90</span><br>
-
-        <strong class="me-2">Categoria:</strong>
-        <span>Calçados</span>
-      </div>
-
-      <div class="col-12 col-md-3 text-md-end mt-3 mt-md-0">
-        <button class="btn btn-warning btn-sm me-2">Editar</button>
-        <button class="btn btn-danger btn-sm">Excluir</button>
-      </div>
-    </li>
-
-    <li class="list-group-item d-flex flex-wrap justify-content-between align-items-center">
-      <div class="col-12 col-md-9">
-        <strong class="me-2">Nome:</strong>
-        <span>Bola Oficial Flamengo</span><br>
-
-        <strong class="me-2">Descrição do Produto:</strong>
-        <span>Bola personalizada com o escudo do Mengão, tamanho oficial.</span><br>
-
-        <strong class="me-2">Quantidade em Estoque:</strong>
-        <span>3</span><br>
-
-        <strong class="me-2">Valor Unitário:</strong>
-        <span>R$ 159,90</span><br>
-
-        <strong class="me-2">Categoria:</strong>
-        <span>Esportes</span>
-      </div>
-
-      <div class="col-12 col-md-3 text-md-end mt-3 mt-md-0">
-        <button class="btn btn-warning btn-sm me-2">Editar</button>
-        <button class="btn btn-danger btn-sm">Excluir</button>
-      </div>
-    </li>
+    <?php endforeach; ?>
 
   </ul>
+
+  <?php endif; ?>
+
 </main>
